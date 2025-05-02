@@ -1,0 +1,16 @@
+AsciiArtGeneration/bin/
+AsciiArtGeneration/obj/
+ASCIIArtGenerator/bin/
+ASCIIArtGenerator/obj/
+ASCIIArtGenerator/Properties/
+BacomZapoctak/bin/
+BacomZapoctak/obj/
+BrightnessCalculation/bin/
+BrightnessCalculation/obj/
+ImageRepersentation/bin/
+ImageRepersentation/obj/
+RealTimeCamera/bin
+RealTimeCamera/obj
+SymbolRepresentation/bin/
+SymbolRepresentation/obj/
+.vs/

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorRepresentation", "ASCIIArtGenerator\ColorRepresentation.csproj", "{8CFF5997-A5C8-47DB-A987-7A0AAB6F34BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightnessCalculation", "BrightnessCalculation\BrightnessCalculation.csproj", "{CD208D78-C840-4E47-B5DD-1012FF72F3FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymbolRepresentation", "SymbolRepresentation\SymbolRepresentation.csproj", "{0BB81F9C-22DE-4DB4-954B-C4DF0E5A9A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRepersentation", "ImageRepersentation\ImageRepersentation.csproj", "{ACE7E2EB-FE24-43C2-88C1-E6AA4CACBE3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiArtGeneration", "AsciiArtGeneration\AsciiArtGeneration.csproj", "{600A2A0D-17C7-436B-86E5-F2BFA140ADDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeCamera", "RealTimeCamera\RealTimeCamera.csproj", "{1E74CE4D-CCC4-4B42-BE75-DA21F67EC54D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BacomZapoctak", "BacomZapoctak\BacomZapoctak.csproj", "{081BEC87-DE12-42F2-BBF7-F37BABE8FB75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CFF5997-A5C8-47DB-A987-7A0AAB6F34BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFF5997-A5C8-47DB-A987-7A0AAB6F34BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CFF5997-A5C8-47DB-A987-7A0AAB6F34BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CFF5997-A5C8-47DB-A987-7A0AAB6F34BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD208D78-C840-4E47-B5DD-1012FF72F3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD208D78-C840-4E47-B5DD-1012FF72F3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD208D78-C840-4E47-B5DD-1012FF72F3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD208D78-C840-4E47-B5DD-1012FF72F3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB81F9C-22DE-4DB4-954B-C4DF0E5A9A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB81F9C-22DE-4DB4-954B-C4DF0E5A9A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB81F9C-22DE-4DB4-954B-C4DF0E5A9A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB81F9C-22DE-4DB4-954B-C4DF0E5A9A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE7E2EB-FE24-43C2-88C1-E6AA4CACBE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE7E2EB-FE24-43C2-88C1-E6AA4CACBE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE7E2EB-FE24-43C2-88C1-E6AA4CACBE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE7E2EB-FE24-43C2-88C1-E6AA4CACBE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600A2A0D-17C7-436B-86E5-F2BFA140ADDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600A2A0D-17C7-436B-86E5-F2BFA140ADDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600A2A0D-17C7-436B-86E5-F2BFA140ADDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600A2A0D-17C7-436B-86E5-F2BFA140ADDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E74CE4D-CCC4-4B42-BE75-DA21F67EC54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E74CE4D-CCC4-4B42-BE75-DA21F67EC54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E74CE4D-CCC4-4B42-BE75-DA21F67EC54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E74CE4D-CCC4-4B42-BE75-DA21F67EC54D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081BEC87-DE12-42F2-BBF7-F37BABE8FB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081BEC87-DE12-42F2-BBF7-F37BABE8FB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081BEC87-DE12-42F2-BBF7-F37BABE8FB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081BEC87-DE12-42F2-BBF7-F37BABE8FB75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9846A6CA-4D7D-4307-8D97-D07A0F13439A}
+	EndGlobalSection
+EndGlobal
