@@ -84,9 +84,16 @@ need to provvide path to it as a command-line argument.
 ### Running the application
 #### Getting the application
 - To successfully get the application from Git follow these steps:
-    - **1** Navigate to the folder where you would like to download the application.
-    - **2** Open console.
-    - 
+    - **1.** Navigate to the folder you would like to download the application to.
+    - **2.** Open Console in that folder.
+    - **3.** Execute `git clone https://github.com/JetamZ/Zapctak-NPRG045.git`
+    - **4.** Navigate to the cloned repo.
+    - **5.** Get nugget packages: `dotnet restore`
+    - **6.** Build the application: `dontnet build`
+    - **7.** Navigate to the `BacomZapoctak`
+    - **8.** Run the application `dotnet run`
+- **Note 1**: The above steps assume you have git and dotnet SDK installed, if not and you wish to get the application from git, please install them
+- **Note 2**: The other option is to open the `AsciiArtGenerator.sln` in Visual Studio and continue from there. If you do that, and you wish to work with example images / configurations I provided, please set the working directory to `BacomZapoctak/`
 #### Running options
 - There are three options how to run the application.
 - **Option 1** - If you wish to run it in real-time mode run the application with single
