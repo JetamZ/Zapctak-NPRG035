@@ -1,5 +1,5 @@
 ### Download, Build an Run Instructions
-Assumonb you have the dotnet SDK and git installed, follow these steps:
+Assuming you have the dotnet SDK and git installed, follow these steps:
 - **1.** Navigate to the folder you would like to download the application to.
 - **2.** Open Console in that folder.
 - **3.** Execute `git clone https://github.com/JetamZ/Zapctak-NPRG045.git`
