@@ -37,7 +37,7 @@ namespace AsciiArtGeneration
             var storing = Console.ReadLine().ToLower().Trim() == "y";
             if (storing) {
                 Console.WriteLine("Please enter the path where you would like to store the configuration: ");
-                Console.WriteLine($"Default {Directory.GetCurrentDirectory}/config/CustomConfig.txt");
+                Console.WriteLine($"Default {Directory.GetCurrentDirectory()}/config/CustomConfig.txt");
                 var configStorePath = Console.ReadLine();
                 if (configStorePath != "") {
                     File.WriteAllText(configStorePath, config.ToString());
@@ -86,7 +86,7 @@ namespace AsciiArtGeneration
             Console.WriteLine("   3 - SMOOTH");
             Console.WriteLine("For more information on these options please check the documentation.");
             var response = Console.ReadLine().ToLower().Trim();
-            while (response != "1" && response != "2" && response != "3" && response != "4" && response != "5") {
+            while (response != "1" && response != "2" && response != "3") {
                 Console.WriteLine("Please choose one of above mentioned options.");
             }
             switch (response) {

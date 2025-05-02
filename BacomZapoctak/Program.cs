@@ -44,6 +44,11 @@ namespace BacomZapoctak
                 runInteractive();
             }
             else {
+                config = AsciiConverter.readConfiguration(args[0]);
+                if (config.realTime) {
+                    RealTime.work(config);
+                    return;
+                }
                 if (args.Length == 2) {
                     var sourcePath = args[1];
                     Console.WriteLine(AsciiArtGenerator.generate(sourcePath, config));

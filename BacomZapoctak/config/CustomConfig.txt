@@ -1,0 +1,7 @@
+Real Time:T
+Brightness Calculation:1
+Symbols:░▒▓.;:#@ '"_
+Reversed:F
+Scale:1
+Height:100
+Width:200
