@@ -7,16 +7,43 @@ using System.Drawing;
 using ColorRepresentation;
 using BrightnessCalculation;
 using System.Security.Principal;
+using OpenCvSharp;
 
 namespace SymbolRepresentation
 {
+    /// <summary>
+    /// Class which handles generating the symbol pool for ascii art as an instance of <see cref="SymbolList"/> class.
+    /// </summary>
     public class BestSymbolPatternFinder {
+        /// <summary>
+        /// First overload of the findBestPattern() method, which simply finds
+        /// best symbols from provided characters by calling second overload.
+        /// </summary>
+        /// <param name="characters">List of characters from among the symbol pool is to be chosen</param>
+        /// <returns>Symbol pool.</returns>
         public static SymbolList findBestPattern(params string[] characters) {
             return findBestPattern(255, characters);
         }
+        /// <summary>
+        /// Second overload of the findBestPattern method.
+        /// Finds maxSymbols best symbols from provided characters and forms a Symbol pool out of them.
+        /// Calls the third overlad.
+        /// </summary>
+        /// <param name="maxSymbols">Maximum symbols to be included in the symbol pool.</param>
+        /// <param name="characters">Possible candidates to the symbol pool</param>
+        /// <returns>Symbol pool.</returns>
         public static SymbolList findBestPattern(int maxSymbols, params string[] characters) {
-            return findBestPattern(10, maxSymbols, characters);
+            return findBestPattern(4, maxSymbols, characters);
         }
+        /// <summary>
+        /// Third and final overload of the findBestPattern() method.
+        /// Finds <maxSymbols> best symbols from provided characters in a way that one symbol covers
+        /// <symbolAccuracy> brightness values
+        /// </summary>
+        /// <param name="symbolAccuracy">The amount of brightness values convered by a singular pixel</param>
+        /// <param name="maxSymbols">Maximum symbols in the symbol pool.</param>
+        /// <param name="characters">Candidates for symbol pool.</param>
+        /// <returns>Symbol pool.</returns>
         public static SymbolList findBestPattern(int symbolAccuracy, int maxSymbols, params string[] characters) {
             SymbolList symbolList = new SymbolList(maxSymbols, symbolAccuracy);
             foreach (string character in characters) {
@@ -26,6 +53,16 @@ namespace SymbolRepresentation
             }
             return symbolList;
         }
+        /// <summary>
+        /// Method responsible for determining the 'brightness' of a character.
+        /// Does it in a following way:
+        ///     1. Constructs a 50x50 bitmap with white background.
+        ///     2. Writes a character on this bitmap using black color, Consolas font of size 50
+        ///     3. Calcualtes the average pixel brightness of the resulting bitmap and uses that
+        ///        as a brightness of a character.
+        /// </summary>
+        /// <param name="character">character of which brightness should be calculated</param>
+        /// <returns>brightness of the character.</returns>
         private static decimal getCharacterBrightness(string character) {
             int width = 50;
             int height = 50;

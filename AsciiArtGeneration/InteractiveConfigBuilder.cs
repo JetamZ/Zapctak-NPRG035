@@ -10,7 +10,16 @@ using System.Threading.Tasks;
 
 namespace AsciiArtGeneration
 {
+    /// <summary>
+    /// Class for building the configuration interactively through console.
+    /// </summary>
     public class InteractiveConfigBuilder {
+        /// <summary>
+        /// Main method for configuration construction.
+        /// Sequentially offers user options for individual configuartion parameters
+        /// and asks them for their choice.
+        /// </summary>
+        /// <returns>Configuration object.</returns>
         public static GeneratorConfig makeConfiguration() { 
             GeneratorConfig config = new GeneratorConfig();
             config.realTime = askRealTime();
@@ -22,6 +31,10 @@ namespace AsciiArtGeneration
             config.scale.width = askWidth();
             return config;
         }
+        /// <summary>
+        /// Ask user whether they wish to start in real time mode.
+        /// </summary>
+        /// <returns>True or False based on user's choice.</returns>
         private static bool askRealTime() {
             Console.WriteLine("Would you like to start the application in real-time mode? [Y/n]");
             var response = Console.ReadLine().ToLower().Trim();
@@ -31,6 +44,10 @@ namespace AsciiArtGeneration
             }
             return response == "y";
         }
+        /// <summary>
+        /// Offers user choice of brightness calculation algorithms and asks them for their choice.
+        /// </summary>
+        /// <returns>Brightness calculation algorithm based on user's choice.</returns>
         private static IBrightnessCalculator askBrightnessCalculator() {
             IBrightnessCalculator bc;
             Console.WriteLine("Please select the pixel (group) brightness calculation method: ");
@@ -43,6 +60,12 @@ namespace AsciiArtGeneration
             bc = (response == "1") ? new HumanEyeAlgorithm() : new RGBAlgorithm();
             return bc;
         }
+        /// <summary>
+        /// Asks user for symbol pool they wish to use in generating the image.
+        /// Either user can type in their symbols, or can use the automatically generated
+        /// UTF symbol pool.
+        /// </summary>
+        /// <returns>Symbol pool</returns>
         private static string[] askSymbols() { 
             Console.WriteLine("Please enter the symbols you would lie to use as a single string or 'auto' to use automatically generated symbols: ");
             var response = Console.ReadLine();
@@ -54,7 +77,7 @@ namespace AsciiArtGeneration
                     number = Console.ReadLine();
                 }
                 int num = int.Parse(number);
-                string[] chars = AsciiConverter.getUTFChars(32, 162);
+                string[] chars = AsciiConfigBuilder.getUTFChars(32, 162);
                 return BestSymbolPatternFinder.findBestPattern(1, num, chars).toStringArray();
             } else {
                 string[] symbols = new string[response.Length];
@@ -64,16 +87,18 @@ namespace AsciiArtGeneration
                 return symbols;
             }
         }
+        /// <summary>
+        /// Asks user about scaling method of the resulting ascii art.
+        /// </summary>
+        /// <returns>Scaling method.</returns>
         private static Scale askScale() {
             Console.WriteLine("Please select from the below scaling options");
             Console.WriteLine("   1 - DEFAULT");
             Console.WriteLine("   2 - FAST");
             Console.WriteLine("   3 - SMOOTH");
-            Console.WriteLine("   4 - REPLICATE");
-            Console.WriteLine("   5 - AVERAGE_PIXEL");
             Console.WriteLine("For more information on these options please check the documentation.");
             var response = Console.ReadLine().ToLower().Trim();
-            while (response != "1" && response != "2" && response != "3" && response != "4" && response != "5") {
+            while (response != "1" && response != "2" && response != "3") {
                 Console.WriteLine("Please choose one of above mentioned options.");
             }
             switch (response) {
@@ -87,6 +112,10 @@ namespace AsciiArtGeneration
                     return Scale.DEFAULT;
             }
         }
+        /// <summary>
+        /// Ask user whether they wish to reverse the brightness meaning.
+        /// </summary>
+        /// <returns>true or false based on user's choice.</returns>
         private static bool askReversed() {
             Console.WriteLine("Would you like the brightness to be reversed (darkest pixel = brightest character)? [Y/n]");
             var response = Console.ReadLine();
@@ -97,6 +126,10 @@ namespace AsciiArtGeneration
             }
             return response == "y";
         }
+        /// <summary>
+        /// Ask user about the desired width of Ascii art, defaults to 200 characters.
+        /// </summary>
+        /// <returns>The width.</returns>
         private static int askWidth() {
             Console.WriteLine("Please enter width of the desired ascii art image (defaul 200):");
             var response = Console.ReadLine().ToLower().Trim();
@@ -106,6 +139,10 @@ namespace AsciiArtGeneration
             }
             return int.TryParse(response, out _) ? int.Parse(response) : 200;
         }
+        /// <summary>
+        /// Ask user about the desired height of Ascii art, defults to 200 characters.
+        /// </summary>
+        /// <returns></returns>
         private static int askHeight() {
             Console.WriteLine("Please enter height of the desired ascii art image (default 100):");
             var response = Console.ReadLine().ToLower().Trim();

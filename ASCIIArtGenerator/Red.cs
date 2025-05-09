@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ColorRepresentation
 {
+    /// <summary>
+    /// Red RGB component class.
+    /// </summary>
     public class Red : ModifieableColor {
         public Red(int colorValue) : base(colorValue) {  }
         public override string ToString() {

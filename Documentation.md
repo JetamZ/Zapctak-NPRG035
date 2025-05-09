@@ -107,8 +107,6 @@ line arguments. That will allow you to configure the program when it is ran. The
 and provide you with configuration options, from which you can choose from.
     - **Note:** If you chose, the non-realtime mode here the appication will also ask you for the path to the source image and the destination you want to save the ascii art to. If no destination is specified, the result is printed on standard output.
 
-#### Example Runs
-
 
 ### Programming Documentation
 - The entire appilcation is divided into multiple projects / modules based on what belongs together.

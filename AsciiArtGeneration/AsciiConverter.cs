@@ -12,8 +12,17 @@ using System.Threading.Tasks;
 
 namespace AsciiArtGeneration
 {
-    public class AsciiConverter {
+    /// <summary>
+    /// Class for building the ascii generation configuration object.
+    /// Contains only static fields and static methods.
+    /// </summary>
+    public class AsciiConfigBuilder {
         static GeneratorConfig configuration = new GeneratorConfig();
+        /// <summary>
+        /// A method for parsing a configuration file and building the <see cref="GeneratorConfig"> object from it.
+        /// </summary>
+        /// <param name="filePath">Path to the configuration file.</param>
+        /// <returns>Configuration object.</returns>
         public static GeneratorConfig readConfiguration(string filePath) {
             using StreamReader sr = new StreamReader(filePath);
             string? line;
@@ -37,7 +46,7 @@ namespace AsciiArtGeneration
 
                             string[] chars = getUTFChars(32, 162);
 
-                            configuration.symbols = BestSymbolPatternFinder.findBestPattern(1, int.Parse(parts[1]), chars).toStringArray();
+                            configuration.symbols = BestSymbolPatternFinder.findBestPattern(int.Parse(parts[2]), int.Parse(parts[1]), chars).toStringArray();
                         } else {
                             string[] symbols = new string[configLine[1].Length];
                             for (int i = 0; i < configLine[1].Length; i++) {
@@ -80,6 +89,12 @@ namespace AsciiArtGeneration
             }
             return configuration;
         }
+        /// <summary>
+        /// Method for getting UTF characters of given range.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="finish"></param>
+        /// <returns>List of UTF characters.</returns>
         public static string[] getUTFChars(int start, int finish) {
             finish++;
             string[] utfChars = new string[finish - start];

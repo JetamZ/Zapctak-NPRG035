@@ -6,10 +6,25 @@ using System.Threading.Tasks;
 using OpenCvSharp;
 namespace ColorRepresentation
 {
+    /// <summary>
+    /// Class for holding an information about pixel color.
+    /// </summary>
     public class PixelColor {
+        /// <summary>
+        /// Color represented as a triplet utilizing OpenCvSharp's Vec3b.
+        /// </summary>
         private Vec3b pixelColor;
+        /// <summary>
+        /// Individual red component.
+        /// </summary>
         public Red redComponent { get; init; }
+        /// <summary>
+        /// Individual green component.
+        /// </summary>
         public Green greenComponent { get; init; }
+        /// <summary>
+        /// Individual blue component.
+        /// </summary>
         public Blue blueComponent { get; init; }
 
         public PixelColor(Vec3b color) {

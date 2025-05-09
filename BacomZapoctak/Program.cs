@@ -4,7 +4,14 @@ using System.IO;
 using Spectre.Console;
 namespace BacomZapoctak
 {
+    /// <summary>
+    /// Main class of the application.
+    /// Contains entry-point.
+    /// </summary>
     class Program {
+        /// <summary>
+        /// Method for handling interactive run, when no path to configuration file is provided.
+        /// </summary>
         private static void runInteractive() { 
             var config = InteractiveConfigBuilder.makeConfiguration();
             if (config.realTime) {
@@ -16,11 +23,10 @@ namespace BacomZapoctak
                 var imagePath = (response == "") ? "images/lion.png" : response;
                 try {
                     var ASCIIart = AsciiArtGenerator.generate(imagePath, config);
-                    Console.WriteLine(ASCIIart);
-                    Console.WriteLine();
                     Console.WriteLine("Would you like to save the ascii art ? If yes enter destination path please:");
                     var target = Console.ReadLine();
-                    if (target == "") {
+                    
+                    if (target == "" || target==null) {
                         Console.WriteLine(ASCIIart);
                     }
                     try {
@@ -37,14 +43,18 @@ namespace BacomZapoctak
 
             }
         }
-
+        /// <summary>
+        /// Entry point of the application.
+        /// Based on the command-line arguments decide how to run th eapplication.
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args) {
             GeneratorConfig config = new GeneratorConfig();
             if (args.Length == 0) { 
                 runInteractive();
             }
             else {
-                config = AsciiConverter.readConfiguration(args[0]);
+                config = AsciiConfigBuilder.readConfiguration(args[0]);
                 if (config.realTime) {
                     RealTime.work(config);
                     return;
