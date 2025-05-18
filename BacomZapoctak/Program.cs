@@ -59,16 +59,23 @@ namespace BacomZapoctak
                     RealTime.work(config);
                     return;
                 }
-                if (args.Length == 2) {
+                if (args.Length == 2)
+                {
                     var sourcePath = args[1];
                     Console.WriteLine(AsciiArtGenerator.generate(sourcePath, config));
                 }
-                else if (args.Length == 3) {
+                else if (args.Length == 3)
+                {
                     var sourcePath = args[1];
                     var outputPath = args[2];
-                    using (var sr = new StreamWriter(outputPath)) {
+                    using (var sr = new StreamWriter(outputPath))
+                    {
                         sr.WriteLine(AsciiArtGenerator.generate(sourcePath, config));
                     }
+                }
+                else { 
+                    Console.WriteLine("Please see documentation for running options.");
+                    return;
                 }
             }
         }

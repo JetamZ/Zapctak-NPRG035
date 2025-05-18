@@ -118,7 +118,7 @@ namespace AsciiArtGeneration
         /// <returns>true or false based on user's choice.</returns>
         private static bool askReversed() {
             Console.WriteLine("Would you like the brightness to be reversed (darkest pixel = brightest character)? [Y/n]");
-            var response = Console.ReadLine();
+            var response = Console.ReadLine().ToLower().Trim();
             while (response != "y" && response != "n")
             {
                 Console.WriteLine("Please enter 'Y' if you wish to start in real-time mode, 'n' else");
