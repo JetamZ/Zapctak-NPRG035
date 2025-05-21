@@ -46,8 +46,9 @@ namespace RealTimeCamera
                     while (true)
                     {
                         var image = getCameraImage(cameraCapture, configuration.scale.width, configuration.scale.height);
-                        string asciiArt = AsciiArtGenerator.generate(image, configuration);
+                        var asciiArt = new Text(AsciiArtGenerator.generate(image, configuration), new Style());
                         var panel = new Panel(asciiArt).Header("Your beautiful face:").Border(BoxBorder.Rounded).Expand();
+                        
                         ctx.UpdateTarget(panel);
                         
                         Thread.Sleep(50);

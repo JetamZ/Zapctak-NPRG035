@@ -1,7 +1,8 @@
 {
   "profiles": {
     "BacomZapoctak": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\matej\\source\\repos\\ASCIIArtGenerator\\BacomZapoctak"
     }
   }
 }

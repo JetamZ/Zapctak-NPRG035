@@ -1,7 +1,7 @@
-Real Time:T
+Real Time:F
 Brightness Calculation:1
-Symbols:.,-+7#@:;
+Symbols:Auto;24;5
 Reversed:F
 Scale:1
 Height:100
-Width:200
+Width:400

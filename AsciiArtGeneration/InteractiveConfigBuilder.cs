@@ -24,12 +24,36 @@ namespace AsciiArtGeneration
             GeneratorConfig config = new GeneratorConfig();
             config.realTime = askRealTime();
             config.brightnessCalculator = askBrightnessCalculator();
-            config.symbols = askSymbols();
+            config.symbols = askSymbols(config.realTime);
             config.scale.scale = askScale();
             config.isReversedSymbol = askReversed();
             config.scale.height = askHeight();
             config.scale.width = askWidth();
+            askSave(config);
             return config;
+        }
+        /// <summary>
+        /// Ask user whether they wish to start in real time mode.
+        /// </summary>
+        /// <returns>True or False based on user's choice.</returns>
+        public static void askSave(GeneratorConfig conf) {
+            Console.WriteLine("Would you like to save the configuration you created? [Y/n]");
+            var response = Console.ReadLine().ToLower().Trim();
+            if (response == "y"){
+                Console.WriteLine("Please enter the path to where you would like to save the configuration:");
+                var targetFile = Console.ReadLine();
+                try {
+                    using (StreamWriter sw = new StreamWriter(targetFile)) {
+                        sw.WriteLine(conf.ToString());
+                    }
+                }
+                catch (IOException e) {
+                    Console.WriteLine("Error saving the configuration");
+                }
+            }
+            else { 
+                return; 
+            }
         }
         /// <summary>
         /// Ask user whether they wish to start in real time mode.
@@ -66,8 +90,8 @@ namespace AsciiArtGeneration
         /// UTF symbol pool.
         /// </summary>
         /// <returns>Symbol pool</returns>
-        private static string[] askSymbols() { 
-            Console.WriteLine("Please enter the symbols you would lie to use as a single string or 'auto' to use automatically generated symbols: ");
+        private static string[] askSymbols(bool realTime) { 
+            Console.WriteLine("Please enter the symbols you would like to use as a single string or 'auto' to use automatically generated symbols: ");
             var response = Console.ReadLine();
             if (response.ToLower().Trim() == "auto") {
                 Console.WriteLine("Please enter a number of symbols to be used (this corresponds to 'saturation' of resulting ascii art)");
@@ -77,6 +101,10 @@ namespace AsciiArtGeneration
                     number = Console.ReadLine();
                 }
                 int num = int.Parse(number);
+                if (realTime) { 
+                    num = Math.Max(num, 0);
+                    num = Math.Min(num, 30);
+                }
                 string[] chars = AsciiConfigBuilder.getUTFChars(32, 162);
                 return BestSymbolPatternFinder.findBestPattern(1, num, chars).toStringArray();
             } else {

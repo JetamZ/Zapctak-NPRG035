@@ -52,8 +52,8 @@ namespace AsciiArtGeneration
                             for (int i = 0; i < configLine[1].Length; i++) {
                                 symbols[i] = configLine[1][i].ToString();
                             }
-                            
-                            configuration.symbols = BestSymbolPatternFinder.findBestPattern(4, configLine[1].Length, symbols).toStringArray();
+
+                            configuration.symbols = symbols;
                         }
                         break;
                     case "Reversed":

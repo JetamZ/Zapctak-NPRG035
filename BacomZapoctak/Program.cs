@@ -36,7 +36,7 @@ namespace BacomZapoctak
                         Console.WriteLine("Error saving the ascii art.");
                     }
                 }
-                catch (IOException e) {
+                catch (Exception e) {
                     Console.WriteLine($"Error reading {imagePath}");
                 }
                 
@@ -54,7 +54,16 @@ namespace BacomZapoctak
                 runInteractive();
             }
             else {
-                config = AsciiConfigBuilder.readConfiguration(args[0]);
+                try {
+                    config = AsciiConfigBuilder.readConfiguration(args[0]);
+                }
+                catch (IOException e) {
+                    Console.WriteLine("Error finding the configuration file, please check if you entered correct path.");
+                    return;
+                } catch (Exception e) {
+                    Console.WriteLine("Malformed configuration file, please make sure it ");
+                    return;
+                }
                 if (config.realTime) {
                     RealTime.work(config);
                     return;
@@ -62,12 +71,21 @@ namespace BacomZapoctak
                 if (args.Length == 2)
                 {
                     var sourcePath = args[1];
+                    if (!Path.Exists(sourcePath)) {
+                        Console.WriteLine("Failed to locate the image file, please check if you entered correct path.");
+                        return;
+                    }
                     Console.WriteLine(AsciiArtGenerator.generate(sourcePath, config));
                 }
                 else if (args.Length == 3)
                 {
                     var sourcePath = args[1];
                     var outputPath = args[2];
+                    if (!Path.Exists(sourcePath))
+                    {
+                        Console.WriteLine("Failed to locate the image file, please check if you entered correct path.");
+                        return;
+                    }
                     using (var sr = new StreamWriter(outputPath))
                     {
                         sr.WriteLine(AsciiArtGenerator.generate(sourcePath, config));
